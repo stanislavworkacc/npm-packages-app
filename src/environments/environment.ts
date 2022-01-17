@@ -3,8 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  api_url: 'https://registry.npmjs.org/-/',
+  api_version: 'v1/',
+}
+
+//api_url: 'https://registry.npmjs.org/-/v1/search?text=fdsa&size=20'
 
 /*
  * For easier debugging in development mode, you can import the following file

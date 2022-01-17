@@ -1,0 +1,41 @@
+<ng-container *ngIf="tableData$ | async as data">
+  <table
+    *ngIf="data.length"
+    mat-table
+    [dataSource]="data"
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef>Author</th>
+      <td mat-cell *matCellDef="let element">{{ element.author }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="version">
+      <th mat-header-cell *matHeaderCellDef>Version</th>
+      <td mat-cell *matCellDef="let element">{{ element.version }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.description | shortDescription }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="handleClick(row)"
+    ></tr>
+  </table>
+
+  <div *ngIf="!data.length">
+    <h2>No NPM modules sorry</h2>
+  </div>
+</ng-container>
