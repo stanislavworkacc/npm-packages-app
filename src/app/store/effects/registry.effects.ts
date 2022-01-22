@@ -3,7 +3,7 @@ import { Actions, createEffect, Effect, ofType } from '@ngrx/effects'
 import { Router } from '@angular/router'
 import { Store } from '@ngrx/store'
 import * as registryActions from '../actions/registry.actionts'
-import {catchError, mergeMap, withLatestFrom} from 'rxjs/operators'
+import {catchError, debounceTime, distinctUntilChanged, mergeMap, withLatestFrom} from 'rxjs/operators'
 import { RegistryService } from '@ui-modules/registry/services/registry.service'
 import {
   addRegistryItems,
@@ -47,6 +47,8 @@ export class RegistryEffects {
   changeFrom$ = createEffect((): any => {
     return this.actions$.pipe(
       ofType(registryActions.changeRegistryFrom),
+      debounceTime(400),
+      distinctUntilChanged(),
       withLatestFrom(this.store.select(getRegistryFromCount)),
       mergeMap(([action, data]) => {
         return this.registryService
