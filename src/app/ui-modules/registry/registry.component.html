@@ -1,6 +1,8 @@
 <registry-search (isEmptySearch)="isEmptySearchHandler($event)"></registry-search>
 <registry-table *ngIf="isSearchEmpty; else empty"></registry-table>
 
+<button (click)="loadMore()">Load More</button>
+
 <ng-template #empty>
   <h2>Please search the NPM packages</h2>
 </ng-template>

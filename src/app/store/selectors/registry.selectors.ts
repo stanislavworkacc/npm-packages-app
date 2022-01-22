@@ -14,3 +14,8 @@ export const getRegistryData = createSelector(
   getRegistryStateFeatureSelector,
   reducer.getRegistryState
 )
+
+export const getRegistryFromCount = createSelector(
+  getRegistryStateFeatureSelector,
+  reducer.getRegistryFromData
+)

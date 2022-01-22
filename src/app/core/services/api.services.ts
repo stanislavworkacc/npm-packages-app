@@ -9,9 +9,9 @@ import { environment } from '../../../environments/environment'
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  get<T>(params: HttpParams = new HttpParams()): Observable<T> {
+  get<T>(params: HttpParams = new HttpParams(), type: string): Observable<T> {
     return this.http.get<T>(
-      `${environment.api_url}${environment.api_version}search`,
+      `${environment.api_url}${environment.api_version}${type}`,
       { params }
     )
   }

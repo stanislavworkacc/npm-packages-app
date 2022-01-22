@@ -10,6 +10,9 @@ export const environment = {
 
 //api_url: 'https://registry.npmjs.org/-/v1/search?text=fdsa&size=20'
 
+
+// https://registry.npmjs.org/-/v1/search?text=as&from=10&size=10
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
